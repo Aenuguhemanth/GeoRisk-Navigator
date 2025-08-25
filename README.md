@@ -1,4 +1,4 @@
-GeoRisk-Navigator 🧭
+#GeoRisk-Navigator 🧭
 
 A U.S. multi-hazard geospatial intelligence atlas for business resilience
 
