@@ -1,131 +1,144 @@
-# GeoRisk-Navigator
-A U.S. multi‑hazard geospatial intelligence atlas for business resilience
+GeoRisk-Navigator 🧭
+
+A U.S. multi-hazard geospatial intelligence atlas for business resilience
+
+Understand where you’re exposed and why. GeoRisk-Navigator fuses natural-hazard histories with man-made risk signals (e.g., cyber incidents) and industry context (NAICS) to produce location-aware insights at state/county granularity. 🗺️
+
 
 Overview
 
-GeoRisk‑Navigator is an interactive, data‑driven atlas that helps U.S. organizations understand where they’re exposed and why. It fuses natural‑hazard histories with indicators of man‑made risk (e.g., cyber incidents) and industry context (NAICS) to produce location‑aware insights at state/county granularity.
+GeoRisk-Navigator is an interactive, data-driven atlas that helps U.S. organizations analyze multi-peril risk across hurricanes, floods, wildfires, and more—alongside cyber and operational risk signals. Business-centric views by NAICS reveal how exposure differs across industries.
 
-Core value
+Core Value
 
-One map, many perils: hurricanes, floods, wildfires, and more, alongside cyber and operational risk signals.
+One map, many perils: natural hazards + cyber/operational signals in one view 🌪️💻
 
-Business‑centric views by NAICS industry, with drill‑downs for counties.
+Business-aware insights: NAICS-based comparisons with county drill-downs 🏭
 
-Transparent data lineage and a reproducible pipeline (Jupyter notebooks → app).
+Transparent lineage: reproducible pipeline (Jupyter notebooks → app) 🔁
 
 Key Features
 
-Interactive U.S. Map — Explore multi‑peril risk patterns at national, state, and county levels.
+Interactive U.S. map: national → state → county exploration 🗺️
 
-Industry‑Aware Scoring — Slice risk by NAICS to compare exposure across business types.
+Industry-aware scoring: slice by NAICS to compare exposure across business types 📊
 
-Natural + Man‑Made Signals — Blend FEMA disaster history, NOAA climate indicators, and public cyber incident/vulnerability datasets.
+Natural + man-made signals: FEMA, NOAA, VERIS VCDB, CVE/MITRE 🌧️🔥💻
 
-Explainability — Hover/expand panels show the driver metrics behind each risk score.
+Explainability: hover/expand panels show driver metrics behind each score 🔎
 
-Scenario Filters — Toggle hazard families (e.g., hurricanes vs. wildfires vs. cyber) to see how patterns shift.
+Scenario filters: toggle hazard families (e.g., hurricanes vs. wildfires vs. cyber) 🎛️
 
-Reproducible Pipeline — Notebooks for data integration, EDA, feature engineering, and prediction feed the app.
+Reproducible pipeline: notebooks for integration, EDA, features, and prediction 🔬
 
 Prerequisites
 
-Python ≥ 3.9
+Python 3.9+ 🐍
 
-OS: macOS, Linux, or Windows
+OS: macOS, Linux, or Windows 💻
 
-Installation
-# clone the repo
+Installation 🛠️
+# 1) Clone the repo
 git clone https://github.com/Aenuguhemanth/GeoRisk-Navigator.git
 cd GeoRisk-Navigator
 
-
-# (recommended) create a virtual environment
+# 2) (Recommended) Create & activate a virtual environment
 python -m venv .venv
-source .venv/bin/activate   # Windows: .venv\Scripts\activate
 
+# macOS/Linux
+source .venv/bin/activate
 
-# install dependencies
+# Windows (PowerShell)
+.\.venv\Scripts\Activate.ps1
+
+# 3) Install dependencies
 pip install -r requirements.txt
-Run the app
 
+Run the App ▶️
+# Streamlit entry point (recommended)
+streamlit run Home.py
+
+# Single-file variant (quick local run)
+streamlit run GeoRisk-Navigator_Webapplication.py
 
 How It Works
-Data pipeline (notebooks)
+Data Pipeline (Notebooks) 🔬
 
-The notebooks in the repo document a reproducible path from raw sources to model‑ready features:
+A reproducible path from raw sources to model-ready features:
 
-Data Integration.ipynb — Load and align external datasets, harmonize geographic keys (state, county FIPS), and NAICS codes.
+Data Integration.ipynb — Load & align external datasets; harmonize FIPS (state/county) and NAICS.
 
-Data merging.ipynb — Join hazard, vulnerability, and exposure tables; resolve nulls and mismatched keys.
+Data merging.ipynb — Join hazard, vulnerability, and exposure tables; resolve nulls and key mismatches.
 
 EDA_part 2.ipynb — Explore distributions, correlations, and temporal/seasonal patterns.
 
-Feature_Engineering.ipynb — Build signals (rolling frequencies, intensity indices, per‑capita normalizations).
+Feature_Engineering.ipynb — Build signals (rolling frequencies, intensity indices, per-capita normalizations).
 
-NOAA.ipynb — Prepare NOAA‑based climate/weather features (storms, precipitation anomalies, etc.).
+NOAA.ipynb — Prepare NOAA-based climate/weather features (storms, precipitation anomalies, etc.).
 
-GeoRisk-Navigator_prediction.ipynb — Prototype models, compute risk indices, and export artifacts.
+GeoRisk-Navigator_prediction.ipynb — Prototype models, compute risk indices, export artifacts.
 
-Outputs such as changed_data.csv and state_county_final_dict.json support the front‑end map and selectors.
+Produced artifacts (used by the app):
 
-Application layer
+changed_data.csv — Prepared/model outputs for map rendering
 
-Home.py — Streamlit entry point with high‑level controls (hazard filters, geography, NAICS).
+state_county_final_dict.json — Metadata for state/county selectors
 
-insights.py — Shared components/visuals and helper functions for the UI.
+Application Layer 🧩
 
-GeoRisk-Navigator_Webapplication.py — Single‑file app variant; useful for quick local runs.
+Home.py — Streamlit entry point (hazard filters, geography, NAICS)
 
-GeoRisk-Navigator_prediction.html — A prebuilt, shareable HTML visualization artifact (e.g., Folium/Plotly export).
+insights.py — Shared UI components/visuals and helpers
 
-Data Sources
+GeoRisk-Navigator_Webapplication.py — Single-file app variant for quick runs
 
-NAICS — North American Industry Classification System (U.S. Census).
-https://www.census.gov/naics/
+GeoRisk-Navigator_prediction.html — Prebuilt/shareable HTML visualization (e.g., Folium/Plotly export)
 
-FEMA — OpenFEMA Disaster Declarations Summaries (multi‑hazard history).
-https://www.fema.gov/openfema-data-page/disaster-declarations-summaries-v2
+Data Sources 🔗
 
-NOAA — Climate and severe‑weather indicators used in feature engineering.
-https://www.noaa.gov/
+NAICS — North American Industry Classification System (U.S. Census): https://www.census.gov/naics/
 
-VERIS VCDB — Public community database of security incidents (cyber/operational).
-https://verisframework.org/vcdb.html
+FEMA — Disaster Declarations Summaries: https://www.fema.gov/openfema-data-page/disaster-declarations-summaries-v2
 
-CVE/MITRE — Catalog of publicly disclosed vulnerabilities (contextual risk).
-https://cve.mitre.org/
+NOAA — Climate & severe-weather indicators: https://www.noaa.gov/
 
-Geographies: Use FIPS codes for state/county joins. Ensure CRS alignment when adding shapefiles/GeoJSON.
+VERIS VCDB — Public security-incident database: https://verisframework.org/vcdb.html
 
-Configuration
+CVE/MITRE — Publicly disclosed vulnerabilities: https://cve.mitre.org/
 
-Hazard toggles: Configure default hazard families and weights in the app sidebar or a config block.
+Geographies: Use FIPS codes for state/county joins. Ensure CRS alignment when incorporating shapefiles/GeoJSON.
 
-Scoring: Start with transparent, additive indices; tune weights by use‑case and validate against hold‑out periods.
+Configuration ⚙️
 
-Caching: Enable Streamlit caching (or equivalent) for faster interactions.
+Hazard toggles — Set default families & weights (sidebar or config block)
 
-Project Structure
-RiskTitans/
-├─ Home.py                      # Streamlit entry point
-├─ GeoRisk-Navigator_Webapplication.py # Single-file app variant
-├─ insights.py                  # UI components & helpers
-├─ pages/                       # Additional Streamlit pages
-├─ *.ipynb                      # Notebooks for data & modeling
-├─ changed_data.csv             # Prepared dataset for the app
-├─ state_county_final_dict.json # Geo selector metadata
-├─ requirements.txt             # Python dependencies
-└─ README.md                    # This file (rebranded)
-Usage
+Scoring — Start with transparent, additive indices; tune per use-case and validate on hold-out periods
+
+Caching — Enable Streamlit caching (or equivalent) for snappier UX
+
+Project Structure 📁
+GeoRisk-Navigator/
+├─ Home.py                          # Streamlit entry point
+├─ GeoRisk-Navigator_Webapplication.py  # Single-file app variant
+├─ insights.py                      # UI components & helpers
+├─ pages/                           # Additional Streamlit pages
+├─ *.ipynb                          # Notebooks for data & modeling
+├─ changed_data.csv                 # Prepared dataset for the app
+├─ state_county_final_dict.json     # Geo selector metadata
+├─ requirements.txt                 # Python dependencies
+└─ README.md                        # This file
+
+Usage 🚀
 
 Launch the app and select State → County.
 
-Choose your NAICS industry (or a set of industries).
+Choose NAICS industry (single or multiple).
 
-Toggle hazard families (e.g., hurricanes, floods, wildfires, cyber) and adjust weights.
+Toggle hazard families (hurricanes, floods, wildfires, cyber) and adjust weights.
 
-Inspect the map and driver panel to see what pushes a location’s score up or down.
+Inspect the map and driver panel to see which metrics push scores up/down.
 
-Export a CSV or PNG for reports (optional: add a download widget).
+Export CSV/PNG for reports (add a download widget if desired).
 
-Contributions are welcome! Please:
+
+Contributions are welcome
