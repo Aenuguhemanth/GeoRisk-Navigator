@@ -120,15 +120,17 @@ Note: Use FIPS codes for state/county joins. Ensure CRS alignment when incorpora
 ### Project Structure
 ```text
 GeoRisk-Navigator/
-├─ Home.py                          # Streamlit entry point
-├─ GeoRisk-Navigator_Webapplication.py  # Single-file app variant
-├─ insights.py                      # UI components and helpers
-├─ pages/                           # Additional Streamlit pages
-├─ *.ipynb                          # Notebooks for data and modeling
-├─ changed_data.csv                 # Prepared dataset for the app
-├─ state_county_final_dict.json     # Geo selector metadata
-├─ requirements.txt                 # Python dependencies
-└─ README.md                        # This file
+├─ Home.py
+├─ RiskTitans_Webapplication.py
+├─ Risk_Trend_Insights.py
+├─ Data Integration.ipynb
+├─ Data merging.ipynb
+├─ EDA_part 2.ipynb
+├─ Feature_Engineering.ipynb
+├─ NOAA.ipynb
+├─ changed_data.csv                 
+├─ state_county_final_dict.json     
+└─ README.md
 ```
 
 ---
