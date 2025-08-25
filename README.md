@@ -143,10 +143,5 @@ GeoRisk-Navigator/
 ---
 
 ## Contributing
-Contributions are welcome. Thank you for helping improve GeoRisk-Navigator!
-
-1. Open an issue to discuss changes or new features.
-2. Fork the repo and create a branch: `git checkout -b feat/your-idea`.
-3. Commit with clear messages; include tests/notebook cells where relevant.
-4. Submit a PR with a concise description, screenshots/GIFs for UI, and notes on data changes.
+Contributions are welcome.
 ```
