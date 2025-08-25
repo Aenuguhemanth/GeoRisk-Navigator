@@ -117,7 +117,7 @@ Note: Use FIPS codes for state/county joins. Ensure CRS alignment when incorpora
 - Caching - Enable Streamlit caching (or equivalent) for faster interactions
 
 ---
-##Project Structure
+### Project Structure
 ```text
 GeoRisk-Navigator/
 ├─ Home.py                          # Streamlit entry point
